@@ -545,19 +545,15 @@ public class q5 extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:      
-        
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/retail_company", "root", "");
             DefaultTableModel table = (DefaultTableModel) tbl.getModel();
-//            int row = tbl.getSelectedRow();
-//            String cell = tbl.getModel().getValueAt(row, 0).toString();
-//            Statement s = con.createStatement();
-//            
-//            s.executeUpdate("delete from customer where name =" + txtname.getText());      
-             PreparedStatement st = con.prepareStatement("DELETE  FROM customer WHERE name=?");
-             st.setString(1,  txtname.getText());
-             st.executeUpdate();
+            PreparedStatement st = con.prepareStatement("DELETE  FROM customer WHERE name=?");
+            st.setString(1, txtname.getText());
+            st.executeUpdate();
+
             JOptionPane.showMessageDialog(null, "Record Delete Succesfully");
         } catch (Exception e) {
         }
@@ -604,12 +600,11 @@ public class q5 extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/retail_company", "root", "");
 
-           Statement s = con.createStatement();
+            Statement s = con.createStatement();
 
-            ResultSet n1 =  s.executeQuery("CALL getCustomers()");
+            ResultSet n1 = s.executeQuery("CALL getCustomers()");
             System.out.println(n1);
-            while(n1.next())
-            {
+            while (n1.next()) {
                 String q1 = String.valueOf(n1.getInt("AVG(income)"));
                 System.out.println(q1);
                 jTextField1.setText(q1);

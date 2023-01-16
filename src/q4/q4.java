@@ -36,21 +36,23 @@ class DataTable implements featurable {
 
 public class q4 {
 
+    static int row, cell;
+    static int column;
+    static int font, size;
+    static int cells[] = null;
+    static String color;
+    static String c;
+
     public static void main(String[] args) throws tableException, IOException {
 
         DataTable obj = new DataTable();
 
-        int row, cell;
-        int column;
-        int font;
-        int cells[] = null;
-        String color;
-        String c;
         int ch;
         do {
             System.out.println("1. Add A Table ");
             System.out.println("2. Get Table Details ");
-            System.out.println("3. Exit");
+            System.out.println("3.  Edit Number of Rows and Columns ");
+            System.out.println("4. Exit");
             Scanner sc = new Scanner(System.in);
             ch = sc.nextInt();
             Hashtable<Integer, Integer> ht1 = new Hashtable<>();
@@ -63,8 +65,8 @@ public class q4 {
 
                     System.out.println("Enter the Number of coumns :- ");
                     column = sc.nextInt();
-                    ht1.put(row, column);
 
+                    //       System.out.println(ht1.values());
                     if (row > 200 && column > 200) {
                         throw new tableException("Row and column cannot be more than 200...");
                     }
@@ -82,30 +84,47 @@ public class q4 {
                     color = sc.next();
 
                     System.out.println("Enter Font Size :");
-                    int size;
+
                     size = sc.nextInt();
-                    ht2.put(size, color);
                     break;
                 case 2:
                     for (int i = 0; i < cells.length; i++) {
                         System.out.println("Values in Cells  " + i + " : " + cells[i]);
                     }
-                     System.out.println("number of rows and column"  );
+                    System.out.println("number of rows and column   " + row + "  " + column);
+                    ht1.put(row, column);
+                    ht2.put(size, color);
 
-//                    for (Map.Entry<Integer, Integer> e : ht1.entrySet()) {
-//                        System.out.println(e.getKey() + " "
-//                                + e.getValue());
-//                    }
-//                    for (Map.Entry<Integer, String> e : ht2.entrySet()) {
-//                        System.out.println(e.getKey() + " "
-//                                + e.getValue());
-//                    }
-                    
+                    for (Map.Entry<Integer, Integer> e : ht1.entrySet()) {
+                        System.out.println(" Number of Rows :="+ e.getKey() + " Number of Columns  :="
+                                + e.getValue());
+                    }
+                    for (Map.Entry<Integer, String> e : ht2.entrySet()) {
+                        System.out.println( "Font Size  :=" + e.getKey() + " "
+                                +"Color  :="  +  e.getValue());
+                    }
+
                     break;
+
                 case 3:
+                    System.out.println("Enter The New  Number of rows :- ");
+                    row = sc.nextInt();
+
+                    System.out.println("Enter the New  Number of coumns :- ");
+                    column = sc.nextInt();
+                    
+                    
+                    //       System.out.println(ht1.values());
+                    if (row > 200 && column > 200) {
+                        throw new tableException("Row and column cannot be more than 200...");
+                    }
                     break;
+                case 4:
+                    
+                        break;
+             
             }
-        } while (ch != 3);
+        } while (ch != 4);
 
 //        Scanner sc = new Scanner(System.in);
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

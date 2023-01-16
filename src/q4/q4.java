@@ -126,29 +126,5 @@ public class q4 {
             }
         } while (ch != 4);
 
-//        Scanner sc = new Scanner(System.in);
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//
-//        Hashtable<Integer, String> ht = new Hashtable<>();
-//        else
-//        {
-//            System.out.println("Enter " + row + " font and color :- ");
-//            for(int i=0;i<row;i++)
-//            {
-//                System.out.println("Enter Font size :- ");
-//                font = sc.nextInt();
-//                
-//                System.out.println("Enter Color :- ");
-//                color = br.readLine();
-//                
-//                ht.put(font, color);
-//            }
-//            System.out.println();
-//            System.out.println("All the Records are :- ");
-//            for(Map.Entry m:ht.entrySet())
-//            {
-//                System.out.println(m.getKey() + " -- " + m.getValue());
-//            }
-        //    }
     }
 }
